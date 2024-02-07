@@ -13,7 +13,7 @@ class PartnerConfigViewSet(viewsets.ModelViewSet):
     permission_classes = [IsServiceAuthenticated, ]
     is_cached = True
 
-    @method_decorator(cache_page(60 * 2))
+    @method_decorator(cache_page(60 * 15))
     @method_decorator(vary_on_headers("Authorization"))
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
