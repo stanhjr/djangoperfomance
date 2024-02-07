@@ -1,0 +1,14 @@
+.env
+.idea
+/.vscode/
+/src/media/
+/src/static/
+*.mo
+*.pyc
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+celerybeat-schedule.*
+celerybeat-schedule
