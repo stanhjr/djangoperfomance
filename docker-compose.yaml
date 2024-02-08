@@ -6,7 +6,7 @@ services:
     build: .
     command: sh -c "python manage.py migrate --noinput &&
       python manage.py loaddata db_dump.json &&
-      gunicorn --bind 0.0.0.0:8000 djangoTestsPerfomance.wsgi:application -w3"
+      gunicorn --bind 0.0.0.0:8000 djangoTestsPerfomance.wsgi:application -w5"
     volumes:
       - .:/app
     ports:
@@ -17,16 +17,16 @@ services:
       - db
       - redis
 
-  nginx:
-    image: nginx:latest
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-      - ./static:/app/static
-      - ./media:/app/media
-    depends_on:
-      - web
+#  nginx:
+#    image: nginx:latest
+#    ports:
+#      - "80:80"
+#    volumes:
+#      - ./nginx:/etc/nginx/conf.d
+#      - ./static:/app/static
+#      - ./media:/app/media
+#    depends_on:
+#      - web
 
   db:
     image: postgres:latest
